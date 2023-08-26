@@ -57,6 +57,7 @@ void Animation::release(void)
 void Animation::setDefPlayFrame(bool reverse, bool loop)
 {
 	_loop = loop;
+	_nowPlayIdx = 0;
 
 	_playList.clear();
 
@@ -110,6 +111,7 @@ void Animation::setPlayFrame(int* playArr, int arrLen, bool loop)
 void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 {
 	_loop = loop;
+	_nowPlayIdx = 0;
 
 	_playList.clear();
 
@@ -155,6 +157,7 @@ void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 
 void Animation::setFPS(float framePerSec)
 {
+	_elpasedSec = 0.0f;
 	_frameUpdateSec = framePerSec;
 }
 

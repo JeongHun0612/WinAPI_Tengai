@@ -5,7 +5,9 @@ Enemy::Enemy(void) : _rc(RectMake(0, 0, 0, 0)),
 					 _x(0.0f),
 					 _y(0.0f),
 					 _speed(0.0f),
-					 _angle(0.0f)
+					 _angle(0.0f),
+					 _rndFirecount(0.0f),
+					 _bulletFireCount(0.0f)
 {}
 
 HRESULT Enemy::init(void)
@@ -19,7 +21,7 @@ HRESULT Enemy::init(const char* imageName, POINT position, float speed, float an
 
 	_anim = new Animation;
 	_anim->init(_image->getWidth(), _image->getHeight(), _image->getFrameWidth(), _image->getFrameHeight());
-	_anim->setFPS(0.2f);
+	_anim->setFPS(0.1f);
 	_anim->AniStart();
 
 	_maxHP = 1;
@@ -51,21 +53,16 @@ void Enemy::update(void)
 
 void Enemy::render(void)
 {
-	draw();
+	_image->aniRender(getMemDC(), _rc.left, _rc.top, _anim);
 }
 
 void Enemy::move(void)
 {
-	_x += cosf(_angle) * _speed;
-	_y -= sinf(_angle) * _speed;
-}
-
-void Enemy::draw(void)
-{
-	_image->aniRender(getMemDC(), _rc.left, _rc.top, _anim);
+	//! Do Nothing
 }
 
 bool Enemy::bulletCountFire(void)
 {
+	//! Do Nothing
 	return false;
 }

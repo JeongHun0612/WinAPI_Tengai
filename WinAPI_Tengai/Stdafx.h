@@ -106,6 +106,22 @@ using namespace MY_UTIL;
 #define WINSIZE_X_HALF		WINSIZE_X / 2
 #define WINSIZE_Y_HALF		WINSIZE_Y / 2
 
+// # 구조체 # 
+struct FrameImage
+{
+	GImage* img;
+	int alpha;
+	int frameX;
+	int frameY;
+	int startFrameX;
+	int endFrameX;
+
+	float x, y;
+	float timeUpdateSec;
+	float elpasedSec;
+};
+
+
 // WS_CAPTION : 타이틀바를 가지기 위한 옵션
 // WS_SYSMENU : 제목 표시줄에 컨트롤 메뉴 상자 창
 #define WINSTYLE			WS_CAPTION | WS_SYSMENU

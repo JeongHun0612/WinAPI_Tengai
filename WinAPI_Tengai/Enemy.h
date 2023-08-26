@@ -3,12 +3,17 @@
 #include "Animation.h"
 #include "Bullet.h"
 
+enum class ENEMY_TYPE
+{
+	NORMAL,
+
+};
+
 class Enemy : public GameNode
 {
 protected:
 	GImage* _image;
 	Animation* _anim;
-	Bullet* _bullet;
 
 	RECT _rc;
 
@@ -19,18 +24,23 @@ protected:
 	float _speed;
 	float _angle;
 
+	float _rndFirecount;
+	float _bulletFireCount;
+
 public:
 	HRESULT init(void);
-	HRESULT init(const char* imageName, POINT position, float speed, float angle = 0.0f);
+	virtual HRESULT init(const char* imageName, POINT position, float speed, float angle = 0.0f);
+	virtual void release(void);
 
-	void release(void);
 	void update(void);
 	void render(void);
 
-	void move(void);
-	void draw(void);
+	virtual void move(void);
+	virtual bool bulletCountFire(void);
 
-	bool bulletCountFire(void);
+public:
+	float getX(void) { return _x; }
+	float getY(void) { return _y; }
 
 	RECT getRC(void) { return _rc; }
 

@@ -61,6 +61,9 @@
     <Filter Include="MainGame\Object\Enemy">
       <UniqueIdentifier>{00e793e3-6b87-4d9a-a5b0-d3eec29f6f53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainGame\Object\UI">
+      <UniqueIdentifier>{e95792a0-c89f-47a7-824e-c0e488846747}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinAPI_Tengai.cpp">
@@ -126,8 +129,20 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>MainGame\Object\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Return_Enemy.cpp">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="Spin_Enemy.cpp">
       <Filter>MainGame\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Green_Enemy.cpp">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Red_Enemy.cpp">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>MainGame\Object\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -201,8 +216,20 @@
       <Filter>MainGame\Object\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Return_Enemy.h">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="Spin_Enemy.h">
       <Filter>MainGame\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Green_Enemy.h">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Red_Enemy.h">
+      <Filter>MainGame\Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>MainGame\Object\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

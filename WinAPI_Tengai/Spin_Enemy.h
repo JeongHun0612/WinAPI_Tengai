@@ -4,11 +4,15 @@
 class Spin_Enemy : public Enemy
 {
 private:
+	int _fireCount;
 
 public:
-	void move();
+	HRESULT init(const char* imageName, POINT position, float speed, float angle = 0.0f);
+	void release(void);
 
-	Spin_Enemy();
-	~Spin_Enemy();
+	void move(void);
+	bool bulletCountFire(void);
+
+	Spin_Enemy() {}
+	~Spin_Enemy() {}
 };
-

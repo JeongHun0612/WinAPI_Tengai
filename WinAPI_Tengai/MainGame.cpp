@@ -49,10 +49,26 @@ void MainGame::addImage(void)
 	// BackGround
 	IMAGEMANAGER->addImage("Title_BG", "Resources/Images/Background/Title.bmp", WINSIZE_X, WINSIZE_Y);
 	IMAGEMANAGER->addImage("Select_BG", "Resources/Images/Background/Select.bmp", WINSIZE_X, WINSIZE_Y);
+	IMAGEMANAGER->addImage("Stage_BG", "Resources/Images/Background/Stage.bmp", 3453, WINSIZE_Y);
 
 	// UI
 	IMAGEMANAGER->addFrameImage("Start_UI", "Resources/Images/UI/Start_UI.bmp", 536, 60, 2, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("Select_Board", "Resources/Images/UI/Select_Board.bmp", 160, 160, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Miko_Left", "Resources/Images/UI/Select_Miko_Left.bmp", 450, 439, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Miko_Right", "Resources/Images/UI/Select_Miko_Right.bmp", 636, 497, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Tengai_Left", "Resources/Images/UI/Select_Tengai_Left.bmp", 450, 442, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Tengai_Right", "Resources/Images/UI/Select_Tengai_Right.bmp", 636, 416, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Kanata_Left", "Resources/Images/UI/Select_Kanata_Left.bmp", 450, 441, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Kanata_Right", "Resources/Images/UI/Select_Kanata_Right.bmp", 636, 492, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Sho_Left", "Resources/Images/UI/Select_Sho_Left.bmp", 450, 439, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Sho_Right", "Resources/Images/UI/Select_Sho_Right.bmp", 636, 403, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Junis_Left", "Resources/Images/UI/Select_Junis_Left.bmp", 450, 438, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Select_Junis_Right", "Resources/Images/UI/Select_Junis_Right.bmp", 636, 454, true, RGB(255, 0, 255));
+
+	IMAGEMANAGER->addImage("1P", "Resources/Images/UI/1P.bmp", 45, 27, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addImage("Life", "Resources/Images/UI/Life.bmp", 48, 42, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Bomb_UI", "Resources/Images/UI/Bomb_UI.bmp", 84, 48, 2, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Score", "Resources/Images/UI/Score.bmp", 270, 27, 10, 1, true, RGB(255, 0, 255));
 
 	// Item
 	IMAGEMANAGER->addFrameImage("Power_Item", "Resources/Images/UI/Power_Item.bmp", 555, 198, 5, 3, true, RGB(255, 0, 255));
@@ -75,7 +91,13 @@ void MainGame::addImage(void)
 	// Junis
 	IMAGEMANAGER->addFrameImage("Junis_Idle", "Resources/Images/Characters/Junis/Junis_Idle.bmp", 270, 84, 3, 1, true, RGB(255, 0, 255));
 
-
 	// Enemy
-	IMAGEMANAGER->addImage("Enmey1", "Resources/Images/Enemy/Enemy1.bmp", 512, 58, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Enemy_Bullet", "Resources/Images/Enemy/Enemy_Bullet.bmp", 102, 18, 6, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Green_Enemy", "Resources/Images/Enemy/Green_Enemy.bmp", 360, 90, 4, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Red_Enemy", "Resources/Images/Enemy/Red_Enemy.bmp", 360, 90, 4, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Spin_Enemy", "Resources/Images/Enemy/Spin_Enemy.bmp", 768, 87, 8, 1, true, RGB(255, 0, 255));
+
+	// Particle
+	IMAGEMANAGER->addFrameImage("Death_Enemy", "Resources/Images/Particle/Death_Enemy.bmp", 1232, 130, 11, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Death_Player", "Resources/Images/Particle/Death_Player.bmp", 1792, 256, 7, 1, true, RGB(255, 0, 255));
 }

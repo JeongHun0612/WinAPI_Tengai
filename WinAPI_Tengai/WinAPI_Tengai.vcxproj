@@ -149,12 +149,15 @@
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="GameNode.cpp" />
     <ClCompile Include="GImage.cpp" />
+    <ClCompile Include="Green_Enemy.cpp" />
     <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PowerItem.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="Red_Enemy.cpp" />
+    <ClCompile Include="Return_Enemy.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Spin_Enemy.cpp" />
@@ -163,6 +166,7 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="WinAPI_Tengai.cpp" />
   </ItemGroup>
@@ -174,6 +178,7 @@
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="GameNode.h" />
     <ClInclude Include="GImage.h" />
+    <ClInclude Include="Green_Enemy.h" />
     <ClInclude Include="ImageManager.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainGame.h" />
@@ -181,7 +186,9 @@
     <ClInclude Include="PowerItem.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RandomFunction.h" />
+    <ClInclude Include="Red_Enemy.h" />
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Return_Enemy.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="SingletonBase.h" />
@@ -191,6 +198,7 @@
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

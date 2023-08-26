@@ -54,7 +54,7 @@ public:
 		int frameX = ptPos.x / _frameWidth;
 		int frameY = ptPos.y / _frameHeight;
 
-		return frameX * frameY * _frameNumWidth;
+		return frameX + frameY * _frameNumWidth;
 	}
 
 	// 프레임에 대한 가로 + 세로 크기 + 현재 몇번째프레임 순서인지

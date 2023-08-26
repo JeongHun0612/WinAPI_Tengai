@@ -13,11 +13,11 @@ private:
 	vEnemy _vMinion;
 	viEnemy _viMinion;
 
-	Bullet* _bullet;
+	EnemyBullet* _bullet;
 	Player* _player;
 
-	GImage* _dieEffectImg;
-	Animation* _dieAnim;
+	vector<FrameImage> _vDieEffect;
+	vector<FrameImage>::iterator _viDieEffect;
 
 public:
 	HRESULT init(void);
@@ -25,15 +25,16 @@ public:
 	void update(void);
 	void render(void);
 
-	void setMinion(const char* imageName, int count, float speed);
+	void setSpinEnemy(int count);
+
 	void removeMinion(int arrNum);
 
 	void minionBulletFire(void);
 	void collision(void);
 
 	vector<Enemy*> getMinions(void) { return _vMinion; }
-	Bullet* getBullet(void) { return _bullet; }
-	void setRocketMemoryAddress(Player* player) { _player = player; }
+	EnemyBullet* getBullet(void) { return _bullet; }
+	void setPlayerMemoryAddress(Player* player) { _player = player; }
 
 	EnemyManager() {}
 	~EnemyManager() {}
