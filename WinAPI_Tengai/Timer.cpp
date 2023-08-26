@@ -29,6 +29,7 @@ HRESULT Timer::init(void)
 	_FPSFrameCount = 0;
 	_FPSTimeElapsed = 0.0f;
 	_worldTime = 0.0f;
+	_timeElapsed = 1.0f / 60.0f;
 
 	return S_OK;
 }

@@ -118,13 +118,13 @@ void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 		if (_loop)
 		{
 			// 갈때
-			for (int i = start; i < end; i++)
+			for (int i = start; i <= end; i++)
 			{
 				_playList.push_back(i);
 			}
 
 			// 올때
-			for (int i = end - 2; i > start; i--)
+			for (int i = end - 1; i > start; i--)
 			{
 				_playList.push_back(i);
 			}
@@ -132,13 +132,13 @@ void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 		else
 		{
 			// 갈때
-			for (int i = start; i < end; i++)
+			for (int i = start; i <= end; i++)
 			{
 				_playList.push_back(i);
 			}
 
 			// 올때
-			for (int i = end - 2; i >= start; i--)
+			for (int i = end - 1; i >= start; i--)
 			{
 				_playList.push_back(i);
 			}
@@ -146,7 +146,7 @@ void Animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 	}
 	else
 	{
-		for (int i = start; i < end; i++)
+		for (int i = start; i <= end; i++)
 		{
 			_playList.push_back(i);
 		}

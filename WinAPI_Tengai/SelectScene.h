@@ -6,10 +6,14 @@ class SelectScene : public GameNode
 {
 private:
 	GImage* _bgImg;
+	GImage* _selectBoard;
 
-	GImage* _selectMikoImg;
-	Animation* _idleAnim;
+	vector<GImage*> _vSeclctCharacterImg;
 
+	int _index;
+	int _selectIndex;
+
+	float _timeCnt;
 
 public:
 	HRESULT init(void);

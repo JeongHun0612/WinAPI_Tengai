@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -117,7 +117,9 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>Stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,14 +144,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="GameNode.cpp" />
     <ClCompile Include="GImage.cpp" />
     <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PowerItem.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="Spin_Enemy.cpp" />
+    <ClCompile Include="StageScene.cpp" />
     <ClCompile Include="Stdafx.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -159,22 +168,33 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CommonMacroFunction.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="GameNode.h" />
     <ClInclude Include="GImage.h" />
     <ClInclude Include="ImageManager.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PowerItem.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RandomFunction.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="SingletonBase.h" />
+    <ClInclude Include="Spin_Enemy.h" />
+    <ClInclude Include="StageScene.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinAPI_Tengai1.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
