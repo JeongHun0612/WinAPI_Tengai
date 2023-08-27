@@ -3,9 +3,8 @@
 #include "Animation.h"
 #include "Player.h"
 #include "EnemyManager.h"
+#include "Boss.h"
 #include "UI.h"
-
-#include "PowerItem.h"
 
 class StageScene : public GameNode
 {
@@ -14,12 +13,11 @@ private:
 
 	Player* _player;
 	EnemyManager* _em;
+	Boss* _boss;
 	UI* _ui;
 
-	PowerItem* _item;
-
-	float _offestX;
-	float _offestY;
+	int _offsetX;
+	int _offsetY;
 
 public:
 	HRESULT init(void);

@@ -41,14 +41,28 @@ void SelectScene::update(void)
 		_timeCnt = 0.0f;
 	}
 
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT) && _selectIndex > 0)
+	if (KEYMANAGER->isOnceKeyDown(VK_LEFT))
 	{
-		_selectIndex--;
+		if (_selectIndex == 0)
+		{
+			_selectIndex = _vSelectCharacterImg.size() - 1;
+		}
+		else
+		{
+			_selectIndex--;
+		}
 	}
 
-	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT) && _selectIndex < _vSelectCharacterImg.size() - 1)
+	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT))
 	{
-		_selectIndex++;
+		if (_selectIndex == _vSelectCharacterImg.size() - 1)
+		{
+			_selectIndex = 0;
+		}
+		else
+		{
+			_selectIndex++;
+		}
 	}
 
 	if (KEYMANAGER->isOnceKeyDown(VK_RETURN) && _selectIndex == MIKO)

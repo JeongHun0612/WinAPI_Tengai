@@ -135,14 +135,11 @@
     <ClCompile Include="Spin_Enemy.cpp">
       <Filter>MainGame\Object\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Green_Enemy.cpp">
-      <Filter>MainGame\Object\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Red_Enemy.cpp">
-      <Filter>MainGame\Object\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>MainGame\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>MainGame\Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,14 +219,11 @@
     <ClInclude Include="Spin_Enemy.h">
       <Filter>MainGame\Object\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Green_Enemy.h">
-      <Filter>MainGame\Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Red_Enemy.h">
-      <Filter>MainGame\Object\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>MainGame\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>MainGame\Object\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

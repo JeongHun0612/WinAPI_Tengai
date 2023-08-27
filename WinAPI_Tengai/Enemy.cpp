@@ -17,6 +17,7 @@ HRESULT Enemy::init(void)
 
 HRESULT Enemy::init(const char* imageName, POINT position, float speed, float angle)
 {
+	_imageName = imageName;
 	_image = IMAGEMANAGER->findImage(imageName);
 
 	_anim = new Animation;

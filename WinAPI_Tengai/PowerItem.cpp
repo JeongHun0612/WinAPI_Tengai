@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "PowerItem.h"
 
-HRESULT PowerItem::init(void)
+HRESULT PowerItem::init(POINT position)
 {
     _img = IMAGEMANAGER->findImage("Power_Item");
     _anim = new Animation;
@@ -9,8 +9,8 @@ HRESULT PowerItem::init(void)
     _anim->setFPS(0.5f);
     _anim->AniStart();
 
-    _x = WINSIZE_X_HALF;
-    _y = WINSIZE_Y_HALF;
+    _x = position.x;
+    _y = position.y;
     _rc = RectMakeCenter(_x, _y, _anim->getFrameWidth(), _anim->getFrameHeight());
 
     _angle = 45;

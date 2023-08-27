@@ -7,15 +7,11 @@ HRESULT Spin_Enemy::init(const char* imageName, POINT position, float speed, flo
 
 	_fireCount = 0;
 
-	_bulletFireCount = TIMEMANAGER->getWorldTime();
-	_rndFirecount = RND->getFromFloatTo(0.5f, 1.5f);
-
 	return S_OK;
 }
 
 void Spin_Enemy::release(void)
 {
-	cout << "Spin Relase" << endl;
 }
 
 void Spin_Enemy::move(void)
@@ -38,10 +34,8 @@ void Spin_Enemy::move(void)
 
 bool Spin_Enemy::bulletCountFire(void)
 {
-	if (_rndFirecount + _bulletFireCount <= TIMEMANAGER->getWorldTime() && _fireCount < 2)
+	if (_x < WINSIZE_X_HALF + 200 && _fireCount == 0)
 	{
-		_bulletFireCount = TIMEMANAGER->getWorldTime();
-		_rndFirecount = RND->getFromFloatTo(0.5f, 1.5f);
 		_fireCount++;
 
 		return true;

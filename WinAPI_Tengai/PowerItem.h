@@ -16,10 +16,13 @@ private:
 	float _angle;
 
 public:
-	HRESULT init(void);
+	HRESULT init(POINT position);
 	void release(void);
 	void update(void);
 	void render(void);
+
+public:
+	RECT getRect(void) { return _rc; }
 
 	PowerItem() {}
 	~PowerItem() {}

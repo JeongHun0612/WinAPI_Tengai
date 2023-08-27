@@ -1,6 +1,7 @@
 #include "Stdafx.h"
 #include "Player.h"
 #include "EnemyManager.h"
+#include "Boss.h"
 
 HRESULT Player::init(void)
 {
@@ -16,10 +17,13 @@ HRESULT Player::init(void)
 	_bullet = new Bullet;
 	_bullet->init("Miko_Bullet", 100, WINSIZE_X);
 
+	_bomb = new Bomb;
+	_bomb->init("Miko_Bomb_Bullet", 1, 400);
+
 	_bulletPower = 0;
 	_bombCount = 2;
 	_lifeCount = 3;
-	_score = 9900;
+	_score = 0;
 
 	_x = -100;
 	_y = WINSIZE_Y_HALF - 200;
@@ -36,6 +40,11 @@ HRESULT Player::init(void)
 
 void Player::release(void)
 {
+	_bullet->release();
+	SAFE_DELETE(_bullet);
+
+	_bomb->release();
+	SAFE_DELETE(_bomb);
 }
 
 void Player::update(void)
@@ -63,7 +72,7 @@ void Player::update(void)
 	{
 		_invincibleTime += TIMEMANAGER->getElapsedTime();
 
-		if (_invincibleTime > 4.0f)
+		if (_invincibleTime > 5.0f)
 		{
 			_frameImg.alpha = 255;
 			_invincibleTime = 0.0f;
@@ -82,6 +91,9 @@ void Player::update(void)
 
 			_dieEffectImg.frameX = 0;
 			_dieEffectImg.elpasedSec = 0.0f;
+			_bulletPower = 0;
+			_bombCount = 2;
+			_lifeCount--;
 		}
 
 		_dieEffectImg.elpasedSec += TIMEMANAGER->getElapsedTime();
@@ -110,7 +122,7 @@ void Player::update(void)
 		}
 	}
 
-	if (!_isReLive && !_isDie)
+	if (!_isReLive && !_isDie && !_boss->getIsDie())
 	{
 		if (KEYMANAGER->isStayKeyDown(VK_LEFT) && _rc.left >= 0.0f)
 		{
@@ -148,13 +160,49 @@ void Player::update(void)
 
 		if (KEYMANAGER->isOnceKeyDown('A'))
 		{
-			_bullet->fire(_x , _y, PI_2, BULLET_SPEED, _bulletPower);
+			_bullet->fire(_x, _y, PI_2, BULLET_SPEED, _bulletPower);
+		}
+		if (KEYMANAGER->isOnceKeyDown('S') && _bombCount > 0 && _bomb->getBomb().size() == 0)
+		{
+			_bombCount--;
+			_bomb->fire(_x, _y, PI_2, BOMB_SPEED);
+		}
+	}
+
+	if (_boss->getIsDie())
+	{
+		if (_frameImg.startFrameX != 0)
+		{
+			_frameImg.startFrameX = 0;
+			_frameImg.endFrameX = 3;
+			_frameImg.frameX = _frameImg.startFrameX;
+			_isInvincible = true;
 		}
 
-		_bullet->update();
+		if (_y > WINSIZE_Y_HALF)
+		{
+			_y -= 1.0f;
+		}
 
-		collision();
+		if (_x < WINSIZE_X_HALF)
+		{
+			_x += 2.0f;
+		}
+		else
+		{
+			_x += 4.0f;
+		}
+
+		if (_x > WINSIZE_X + 1000)
+		{
+			SCENEMANAGER->changeScene("Title");
+		}
 	}
+
+	_bullet->update();
+	_bomb->update();
+
+	collision();
 
 	_rc = RectMakeCenter(_x, _y, _frameImg.img->getFrameWidth(), _frameImg.img->getFrameHeight());
 }
@@ -169,6 +217,7 @@ void Player::render(void)
 	}
 
 	_bullet->render();
+	_bomb->render();
 }
 
 void Player::collision(void)
@@ -176,17 +225,59 @@ void Player::collision(void)
 	// 미사일 충돌
 	for (int i = 0; i < _bullet->getBullet().size(); i++)
 	{
+		// 미니언
 		for (int j = 0; j < _em->getMinions().size(); j++)
 		{
 			RECT rc;
 
-			if (IntersectRect(&rc, &_bullet->getBullet()[i].rc, 
-				&CollisionAreaResizing(_em->getMinions()[j]->getRC(), 
-					(_em->getMinions()[j]->getRC().right - _em->getMinions()[j]->getRC().left) - 10,
-					(_em->getMinions()[j]->getRC().bottom - _em->getMinions()[j]->getRC().top) - 10)))
+			if (IntersectRect(&rc, &_bullet->getBullet()[i].rc, &_em->getMinions()[j]->getRC()))
 			{
 				_bullet->removeBullet(i);
 
+				_em->getMinions()[j]->setCurHP(_em->getMinions()[j]->getCurHP() - 1);
+
+				if (_em->getMinions()[j]->getCurHP() == 0)
+				{
+					_score += 100;
+					_em->removeMinion(j);
+				}
+				break;
+			}
+		}
+	}
+
+	if (_boss->getIsStart())
+	{
+		// 미사일 충돌
+		for (int i = 0; i < _bullet->getBullet().size(); i++)
+		{
+			// 보스
+			RECT rc;
+			for (int j = 0; j < _boss->getBossParts().size(); j++)
+			{
+				if (IntersectRect(&rc, &_bullet->getBullet()[i].rc,
+					&CollisionAreaResizing(_boss->getBossParts()[j]->rc, 40, 40)) && !_boss->getBossParts()[j]->isDestory)
+				{
+					_bullet->removeBullet(i);
+
+					_boss->getBossParts()[j]->curHP -= 1;
+					_boss->getBossParts()[j]->isHit = true;
+
+					break;
+				}
+			}
+		}
+	}
+
+	// 폭탄 충돌
+	for (int i = 0; i < _bomb->getBomb().size(); i++)
+	{
+		for (int j = 0; j < _em->getMinions().size(); j++)
+		{
+			RECT rc;
+
+			if (IntersectRect(&rc, &CollisionAreaResizing(_bomb->getBomb()[i].rc, 100, 100), &_em->getMinions()[j]->getRC()))
+			{
 				_em->getMinions()[j]->setCurHP(_em->getMinions()[j]->getCurHP() - 1);
 
 				if (_em->getMinions()[j]->getCurHP() == 0)

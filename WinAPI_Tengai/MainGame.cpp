@@ -18,7 +18,7 @@ HRESULT MainGame::init(void)
 	SCENEMANAGER->addScene("Stage", new StageScene);
 
 	// 초기 화면 (타이틀) <->
-	SCENEMANAGER->changeScene("Stage");
+	SCENEMANAGER->changeScene("Title");
 
 	return S_OK;
 }
@@ -49,7 +49,7 @@ void MainGame::addImage(void)
 	// BackGround
 	IMAGEMANAGER->addImage("Title_BG", "Resources/Images/Background/Title.bmp", WINSIZE_X, WINSIZE_Y);
 	IMAGEMANAGER->addImage("Select_BG", "Resources/Images/Background/Select.bmp", WINSIZE_X, WINSIZE_Y);
-	IMAGEMANAGER->addImage("Stage_BG", "Resources/Images/Background/Stage.bmp", 3453, WINSIZE_Y);
+	IMAGEMANAGER->addImage("Stage_BG", "Resources/Images/Background/Stage.bmp", 3453, 3699);
 
 	// UI
 	IMAGEMANAGER->addFrameImage("Start_UI", "Resources/Images/UI/Start_UI.bmp", 536, 60, 2, 1, true, RGB(255, 0, 255));
@@ -78,6 +78,8 @@ void MainGame::addImage(void)
 	IMAGEMANAGER->addFrameImage("Miko", "Resources/Images/Characters/Miko/Miko.bmp", 960, 87, 10, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Miko_Idle", "Resources/Images/Characters/Miko/Miko_Idle.bmp", 288, 84, 3, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Miko_Bullet", "Resources/Images/Characters/Miko/Bullet.bmp", 450, 28, 15, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Miko_Bomb", "Resources/Images/Characters/Miko/Bomb.bmp", 4320, 480, 9, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Miko_Bomb_Bullet", "Resources/Images/Characters/Miko/Bomb_Bullet.bmp", 351, 48, 9, 1, true, RGB(255, 0, 255));
 
 	// Tengai
 	IMAGEMANAGER->addFrameImage("Tengai_Idle", "Resources/Images/Characters/Tengai/Tengai_Idle.bmp", 258, 78, 3, 1, true, RGB(255, 0, 255));
@@ -96,6 +98,13 @@ void MainGame::addImage(void)
 	IMAGEMANAGER->addFrameImage("Green_Enemy", "Resources/Images/Enemy/Green_Enemy.bmp", 360, 90, 4, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Red_Enemy", "Resources/Images/Enemy/Red_Enemy.bmp", 360, 90, 4, 1, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addFrameImage("Spin_Enemy", "Resources/Images/Enemy/Spin_Enemy.bmp", 768, 87, 8, 1, true, RGB(255, 0, 255));
+
+	// Boss
+	IMAGEMANAGER->addFrameImage("Boss_Head", "Resources/Images/Enemy/Boss_Head.bmp", 870, 408, 5, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Boss_Body", "Resources/Images/Enemy/Boss_Body.bmp", 1755, 681, 5, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Boss_Tail", "Resources/Images/Enemy/Boss_Tail.bmp", 672, 654, 2, 2, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrameImage("Boss_Bullet", "Resources/Images/Enemy/Boss_Bullet.bmp", 150, 50, 3, 1, true, RGB(255, 0, 255));
+
 
 	// Particle
 	IMAGEMANAGER->addFrameImage("Death_Enemy", "Resources/Images/Particle/Death_Enemy.bmp", 1232, 130, 11, 1, true, RGB(255, 0, 255));

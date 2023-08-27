@@ -3,12 +3,6 @@
 #include "Animation.h"
 #include "Bullet.h"
 
-enum class ENEMY_TYPE
-{
-	NORMAL,
-
-};
-
 class Enemy : public GameNode
 {
 protected:
@@ -16,6 +10,8 @@ protected:
 	Animation* _anim;
 
 	RECT _rc;
+
+	const char* _imageName;
 
 	int _maxHP;
 	int _curHP;
@@ -44,8 +40,10 @@ public:
 
 	RECT getRC(void) { return _rc; }
 
-	int getCurHP() { return _curHP; }
+	int getCurHP(void) { return _curHP; }
 	void setCurHP(int curHP) { _curHP = curHP; }
+	
+	const char* getImageName(void) { return _imageName; }
 
 	Enemy(void);
 	~Enemy(void) {}
